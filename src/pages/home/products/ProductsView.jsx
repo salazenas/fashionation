@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import Product from "./Product";
 import "./ProductsView.scss";
 
-function ProductsView({ catalog }) {
+function ProductsView({ products }) {
   return (
     <section className="products">
       <div className="app__container">
-        <div className="header__title">{catalog.length}</div>
+        <div className="header__title">{products.length}</div>
         <div className="products_grid">
-          {catalog.map((product, index) => (
+          {products.map((product, index) => (
             <Product key={index} {...product} />
           ))}
         </div>
@@ -18,6 +18,12 @@ function ProductsView({ catalog }) {
   );
 }
 
-ProductsView.propTypes = {};
+ProductsView.propTypes = {
+  products: PropTypes.array
+};
+
+ProductsView.defaultProps = {
+  products: []
+};
 
 export default ProductsView;

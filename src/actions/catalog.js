@@ -1,9 +1,10 @@
-import { SET_CATALOG } from "../helpers/ActionsConstants";
+import { SET_PRODUCTS } from "../modules/constants/catalog";
+
 import axios from "axios";
 
 const setCatalog = (payload) => ({
-  type: SET_CATALOG,
-  payload,
+  type: SET_PRODUCTS,
+  payload
 });
 
 export const fetchCatalog = () => {

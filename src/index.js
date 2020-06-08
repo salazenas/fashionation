@@ -1,20 +1,16 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import ECommerceReducer from './reducers/ECommerceReducer';
-import './index.scss';
-import App from './main/App';
-import * as serviceWorker from './serviceWorker';
-
-const store = createStore(ECommerceReducer, applyMiddleware(thunk));
+import React from "react";
+import { render } from "react-dom";
+import { Provider } from "react-redux";
+import "./index.scss";
+import App from "./main/App";
+import * as serviceWorker from "./serviceWorker";
+import store from "./store/index";
 
 render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

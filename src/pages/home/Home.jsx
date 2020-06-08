@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { fetchCatalog } from "../../actions/ECommerceActions";
+import { fetchCatalog } from "../../actions/catalog";
 import ProductsView from "./products/ProductsView";
 
 export const Home = (props) => {
   useEffect(() => {
-    if (!props.catalog.length) props.fetchCatalog();
+    props.fetchCatalog();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <ProductsView catalog={props.catalog} />;
+  return <ProductsView products={props.catalog.products} />;
 };
 
 Home.propTypes = {

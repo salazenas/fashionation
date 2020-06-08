@@ -1,25 +1,18 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import "../modules/libs/fontawesome";
 import "./App.scss";
 
 import Navbar from "./navbar/Navbar";
-import Home from "../pages/home/Home";
+import Routes from "../routes/index";
 
 export default function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="app">
-        <Navbar/>
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Navbar />
+        <Routes />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
