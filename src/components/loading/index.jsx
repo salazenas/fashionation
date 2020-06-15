@@ -4,6 +4,8 @@ import "./Loading.scss";
 export default function Loading(props) {
   const [active, setActive] = useState(false);
 
+  console.log(process)
+
   useEffect(() => {
     setActive(true);
   }, []);
@@ -12,7 +14,7 @@ export default function Loading(props) {
     <div className="loading__container">
       <img
         className={`loading__image ${active ? `active` : ""}`}
-        src="http://localhost:3000/logo/full.png"
+        src="http://localhost:3000/logo/fashionista.png"
         alt="Fashionista logo"
       />
     </div>

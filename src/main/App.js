@@ -5,6 +5,7 @@ import "../modules/libs/fontawesome";
 
 import Loading from "../components/loading/index";
 import Navbar from "./navbar/Navbar";
+import Footer from "./footer/Footer";
 import Routes from "../routes/index";
 import Cart from "../pages/cart/Cart";
 import Search from "../pages/search/Search";
@@ -14,7 +15,11 @@ import { fetchCatalog } from "../actions/catalog";
 import { setIsLoading, dismissDrawer } from "../actions/app";
 import "./App.scss";
 
-const getDrawer = ({ isCartOpen, isSearchOpen, isFavoritesOpen }, dismissDrawer, cartLength) => {
+const getDrawer = (
+  { isCartOpen, isSearchOpen, isFavoritesOpen },
+  dismissDrawer,
+  cartLength
+) => {
   if (isCartOpen) {
     return (
       <Drawer title={`Sacola (${cartLength})`} onDismiss={dismissDrawer}>
@@ -36,9 +41,16 @@ const getDrawer = ({ isCartOpen, isSearchOpen, isFavoritesOpen }, dismissDrawer,
   }
 
   return null;
-}
+};
 
-const App = ({ catalog, app, setIsLoading, fetchCatalog, dismissDrawer, cartLength }) => {
+const App = ({
+  catalog,
+  app,
+  setIsLoading,
+  fetchCatalog,
+  dismissDrawer,
+  cartLength
+}) => {
   const { products } = catalog;
   const { isLoading, ...drawerProps } = app;
   const prevCatalogLength = useRef(products ? products.length : 0);
@@ -57,7 +69,7 @@ const App = ({ catalog, app, setIsLoading, fetchCatalog, dismissDrawer, cartLeng
     if (!prevCatalogLength.current && products.length) {
       stopLoading();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
 
   useEffect(() => {
@@ -76,7 +88,10 @@ const App = ({ catalog, app, setIsLoading, fetchCatalog, dismissDrawer, cartLeng
       >
         <Navbar />
         <Routes />
-        {app.isDrawerVisible ? getDrawer(drawerProps, dismissDrawer, cartLength) : null}
+        <Footer />
+        {app.isDrawerVisible
+          ? getDrawer(drawerProps, dismissDrawer, cartLength)
+          : null}
       </div>
     </BrowserRouter>
   );

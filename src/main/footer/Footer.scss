@@ -1,0 +1,35 @@
+@import "../../assets/styles/common";
+
+.footer {
+  background-color: $primaryColor;
+  color: #fff;
+  padding: 1rem 0 .5rem;
+  height: 5.5rem;
+  width: 100%;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.02);
+  display: flex;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+
+    .footer__text {
+      font-weight: 300;
+      letter-spacing: .07rem;
+    }
+
+    .footer__icons {
+      margin: 0 0.5rem;
+
+      .footer__icon {
+        margin: 0 0.5rem;
+        color: white;
+      }
+    }
+  }
+}
