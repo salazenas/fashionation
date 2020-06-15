@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Drawer.scss";
 import { useCallback } from "react";
@@ -11,15 +11,22 @@ const handleClick = (evt, drawerRef, dismissDrawer) => {
 
 function Drawer(props) {
   const drawerRef = useRef();
+  const [isVisible, setIsVisible] = useState(false);
   const onClickOut = useCallback(
     () => (evt) => {
-      handleClick(evt, drawerRef, props.onDismiss)
+      handleClick(evt, drawerRef, props.onDismiss);
     },
     [props.onDismiss]
   );
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => document.addEventListener("click", onClickOut), []);
+  useEffect(
+    () => {
+      document.addEventListener("click", onClickOut);
+      setIsVisible(true);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   useEffect(() => {
     return () => {
@@ -28,7 +35,10 @@ function Drawer(props) {
   });
 
   return (
-    <div ref={drawerRef} className="drawer drawer--is-visible">
+    <div
+      ref={drawerRef}
+      className={`drawer ${isVisible ? "drawer--is-visible" : ""}`}
+    >
       <header className="drawer__header">
         <div className="app__container">
           <div className="header__context">

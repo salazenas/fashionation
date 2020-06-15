@@ -21,7 +21,7 @@
   position: fixed;
   top: 0;
   transform: translate3d(100%, 0, 0);
-  transition: transform 0.3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
   width: 100%;
   z-index: 20;
 }
@@ -38,7 +38,7 @@
 }
 
 .drawer.drawer--is-visible {
-  transform: translate3d(0, 0, 0);
+  transform: translateZ(0);
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
@@ -136,6 +136,5 @@
     padding-top: .7rem;
     padding-bottom: .7rem;
     margin: 0 auto;
-    transform: translate3d(calc(-50% -30px), 0, 0);
   }
 }
