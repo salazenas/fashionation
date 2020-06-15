@@ -1,5 +1,22 @@
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHeart as farFaHeader } from "@fortawesome/free-regular-svg-icons";
+import {
+  faSearch,
+  faShoppingCart,
+  faHeart as fasFaHeader,
+  faEye,
+  faArrowLeft,
+  faPlus,
+  faMinus
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, faCheckSquare, faCoffee)
+library.add(
+  faSearch,
+  faShoppingCart,
+  fasFaHeader,
+  farFaHeader,
+  faEye,
+  faArrowLeft,
+  faPlus,
+  faMinus
+);

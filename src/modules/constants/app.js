@@ -1,0 +1,5 @@
+export const SET_IS_LOADING = "SET_IS_LOADING";
+export const TOGGLE_CART = "TOGGLE_CART";
+export const TOGGLE_SEARCH = "TOGGLE_SEARCH";
+export const TOGGLE_FAVORITES = "TOGGLE_FAVORITES";
+export const DISMISS_DRAWER = "DISMISS_DRAWER";

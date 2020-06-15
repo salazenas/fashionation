@@ -1,17 +1,5 @@
-/* Shared Resources */
-/* Amaro - Theme Config */
-/*
-* Colors
-*/
-/*
-* Colors Sets
-*/
-/*
-* Typography
-*/
-/*
-* Media Queries Break Points
-*/
+@import "../../../assets/styles/common";
+
 .product {
   width: 100%;
 }
@@ -20,6 +8,8 @@
   overflow: hidden;
   width: 100%;
   position: relative;
+  border: solid 2px $primaryColor;
+  border-radius: .5rem;
 }
 
 .product__image img {
@@ -32,15 +22,13 @@
 }
 
 .product__info {
-  align-items: center;
+  align-items: flex-start;
   background-color: rgba(255,255,255, 0.4);
   display: flex;
-  flex-direction: column;
   height: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   left: 0;
   opacity: 0.3;
-  padding: 80px 20px;
   position: absolute;
   text-align: center;
   top: 0;
@@ -48,9 +36,24 @@
   visibility: hidden;
   width: 100%;
   z-index: 1;
+
+  .product__icons {
+    display: flex;
+  }
+
+  .product__icon {
+    opacity: 0.6;
+    margin: 1rem;
+    height: 2.5rem;
+    width: 2.5rem;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
-.product__image:hover .product__info {
+.products__box:hover .product__info {
 	opacity: 1;
 	visibility: visible;
 }
@@ -119,9 +122,9 @@
 }
 
 .product__filter--selected {
-  background-color: #212529;
+  background-color: $primaryColor;
   color: #fff;
-  border-color: #212529;
+  border-color: $primaryColor;
 }
 
 .product__content {
@@ -172,8 +175,8 @@
 }
 
 .product__add-to-cart {
-  background-color: #212529;
-  border-color: #212529;
+  background-color: $primaryColor;
+  border-color: $primaryColor;
   border-radius: .5rem;
   border: none;
   box-shadow: 0 0.2rem 2rem 0 rgba(0, 0, 0, 0.5);
@@ -187,11 +190,10 @@
   text-align: center;
   transform: translate3d(0, 0, 0);
   width: 100%;
-}
 
-@media screen and (min-width: 1279px) {
-  .product__add-to-cart {
-    width: 50%;
+  &:disabled {
+    opacity: 0.5;
+    cursor: auto;
   }
 }
 

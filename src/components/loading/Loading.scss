@@ -1,0 +1,25 @@
+@import "../../assets/styles/common";
+
+.loading__container {
+  background-color: $primaryColor;
+  display: flex;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading__image {
+  height: 250px;
+  left: 0;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+    -webkit-transition: opacity 1s ease-in;
+    -moz-transition: opacity 1s ease-in;
+    -o-transition: opacity 1s ease-in;
+    transition: opacity 1s ease-in;
+  }
+}

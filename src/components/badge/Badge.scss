@@ -1,17 +1,5 @@
-/* Shared Resources */
-/* Amaro - Theme Config */
-/*
-* Colors
-*/
-/*
-* Colors Sets
-*/
-/*
-* Typography
-*/
-/*
-* Media Queries Break Points
-*/
+@import "../../assets/styles/common";
+
 .badge {
   display: inline-block;
   font-size: 1.2rem;
@@ -20,6 +8,6 @@
 }
 
 .badge--discount {
-  background-color: #212529;
+  background-color: $primaryColor;
   color: #fff;
 }

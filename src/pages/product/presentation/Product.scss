@@ -1,0 +1,68 @@
+@import "../../../assets/styles/common";
+
+.single-product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  padding-bottom: 6.5rem;
+  height: 100vh;
+  padding: 10.1rem 6.4rem 0;
+  overflow: auto;
+}
+
+.single-product .badge {
+  font-size: 1.5rem;
+  position: absolute;
+  left: 1.6rem;
+  bottom: 0;
+  margin: 0;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 40px;
+  height: 40px;
+}
+
+.single__product-image {
+  display: flex;
+  width: inherit;
+  position: relative;
+  border: solid 2px $primaryColor;
+  border-radius: .5rem;
+
+  img {
+    width: inherit;
+  }
+}
+
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 100px;
+  height: 100px;
+}
+
+@media screen and (min-width: 1279px) {
+  .single-product .badge {
+    right: 0;
+    top: 0;
+    left: auto;
+    bottom: auto;
+    margin: 0;
+  }
+
+  .single__product-image {
+    width: auto;
+
+    img {
+      width: auto;
+    }
+  }
+}

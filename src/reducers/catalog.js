@@ -1,15 +1,19 @@
-import { SET_PRODUCTS } from "../modules/constants/catalog";
+import { changeProductFavorite } from "../modules/helpers/catalog";
+import {
+  SET_PRODUCTS,
+  CHANGE_FAVORITE
+} from "../modules/constants/catalog";
 
 const initialState = {
-  products: [],
+  products: []
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case SET_PRODUCTS:
-      debugger;
-
       return { ...state, products: payload };
+    case CHANGE_FAVORITE:
+      return { ...state, products: changeProductFavorite(state.products, payload) };
     default:
       return state;
   }

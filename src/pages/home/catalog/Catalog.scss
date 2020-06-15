@@ -1,20 +1,7 @@
-/* Shared Resources */
-/* Amaro - Theme Config */
-/*
-* Colors
-*/
-/*
-* Colors Sets
-*/
-/*
-* Typography
-*/
-/*
-* Media Queries Break Points
-*/
 .products {
-  padding-top: 1.6rem;
-  padding-bottom: 1.6rem;
+  height: 100vh;
+  padding: 3.2rem 6.4rem;
+  overflow: auto;
 }
 
 .products__grid {
@@ -32,6 +19,7 @@
 }
 
 .products__box {
+  cursor: pointer;
   float: left;
   padding: 1rem .25rem;
   position: relative;

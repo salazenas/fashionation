@@ -1,9 +1,14 @@
-import { SET_PRODUCTS } from "../modules/constants/catalog";
+import { SET_PRODUCTS, CHANGE_FAVORITE } from "../modules/constants/catalog";
 
 import axios from "axios";
 
 const setCatalog = (payload) => ({
   type: SET_PRODUCTS,
+  payload
+});
+
+export const changeFavorite = (payload) => ({
+  type: CHANGE_FAVORITE,
   payload
 });
 

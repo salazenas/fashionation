@@ -1,29 +1,23 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import { connect } from "react-redux";
 
-import { fetchCatalog } from "../../actions/catalog";
-import ProductsView from "./products/ProductsView";
+import Catalog from "./catalog/Catalog";
+import "./Home.scss";
 
-export const Home = (props) => {
-  useEffect(() => {
-    props.fetchCatalog();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+const Home = ({ catalog }) => {
+  const { products, isLoading } = catalog;
 
-  return <ProductsView products={props.catalog.products} />;
+  return (
+    <div className="home">
+      <Catalog products={products} active={!isLoading} />
+    </div>
+  );
 };
 
-Home.propTypes = {
-  // prop: PropTypes
-};
+Home.propTypes = {};
 
 const mapStateToProps = (state) => ({
-  catalog: state.catalog,
+  catalog: state.catalog
 });
 
-const mapDispatchToProps = {
-  fetchCatalog,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, null)(Home);
