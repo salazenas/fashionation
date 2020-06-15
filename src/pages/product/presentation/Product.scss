@@ -6,6 +6,7 @@
   position: relative;
   align-items: flex-start;
   justify-content: center;
+  flex-direction: column;
 }
 
 .single-product .badge {
@@ -26,7 +27,8 @@
 
 .single__product-image {
   display: flex;
-  width: inherit;
+  width: -webkit-fill-available;
+  width: -moz-available;
   position: relative;
   border: solid 2px $primaryColor;
   border-radius: .5rem;
@@ -44,6 +46,10 @@
 }
 
 @media screen and (min-width: 1279px) {
+  .single-product {
+    flex-direction: row;
+  }
+  
   .single-product .badge {
     right: 0;
     top: 0;

@@ -24,6 +24,8 @@
     }
 
     .footer__icons {
+      display: flex;
+      flex-direction: row;
       margin: 0 0.5rem;
 
       .footer__icon {
