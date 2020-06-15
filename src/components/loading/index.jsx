@@ -14,7 +14,7 @@ export default function Loading(props) {
     <div className="loading__container">
       <img
         className={`loading__image ${active ? `active` : ""}`}
-        src="http://localhost:3000/logo/fashionista.png"
+        src="../logo/fashionista.png"
         alt="Fashionista logo"
       />
     </div>
