@@ -55,3 +55,13 @@ export const handleRemoveItem = (items, newItem) => {
 
   return updatedItems;
 };
+
+export const getItemsQuantity = (items) => {
+  let quantity = 0;
+
+  items.forEach((item) => {
+    quantity += item.quantity;
+  });
+
+  return quantity;
+};

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toggleCart, toggleSearch, toggleFavorites } from "../../actions/app";
+import { getItemsQuantity } from "../../modules/helpers/cart";
 
 import "./Navbar.scss";
 
@@ -40,7 +41,7 @@ const Navbar = (props) => {
             <FontAwesomeIcon icon="shopping-cart" />
             <sup className="counter">
               <span className="counter__value">
-                {props.cart.items.length || 0}
+                {getItemsQuantity(props.cart.items)}
               </span>
             </sup>
           </button>
