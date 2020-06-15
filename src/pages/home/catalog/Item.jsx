@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { formatNameToUrlFormat } from "../../../modules/helpers/catalog";
 import { changeFavorite } from "../../../actions/catalog";
 import Badge from "../../../components/badge/Badge";
 
@@ -79,7 +78,7 @@ const handleProductClick = (
   favContainerElm
 ) => {
   if (favContainerElm.current.contains(evt.target)) {
-    changeFavorite(name);
+    changeFavorite();
 
     evt.stopPropagation();
   } else {
@@ -129,8 +128,8 @@ const Item = (props) => {
   const history = useHistory();
   const favContainerElm = useRef();
   const callProductPage = useCallback(() => {
-    history.push(`product/${formatNameToUrlFormat(props.name)}`);
-  }, [history, props.name]);
+    history.push(`product/${props.code_color}`);
+  }, [history, props.code_color]);
 
   return (
     <div className="products__box">
@@ -139,7 +138,7 @@ const Item = (props) => {
         props.name,
         props.discount_percentage,
         props.isFavorite,
-        props.changeFavorite,
+        () => props.changeFavorite(props.code_color),
         callProductPage,
         favContainerElm
       )}

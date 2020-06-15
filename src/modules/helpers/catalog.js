@@ -1,19 +1,15 @@
 import { IS_FAVORITE } from "../constants/catalog";
 
-export const formatNameToUrlFormat = (name) => {
-  return name.toLowerCase().replace(" ", "-");
-};
-
-export const getProductByName = (products, name) => {
+export const getProductByCodeColor = (products, codeColor) => {
   return products.find(
-    (product) => formatNameToUrlFormat(product.name) === name
+    (product) => product.code_color === codeColor
   );
 };
 
-export const changeProductFavorite = (products, target, condition) => {
+export const changeProductFavorite = (products, target) => {
   return products.map(
     (product) => {
-      if (product.name === target) {
+      if (product.code_color === target) {
         product[IS_FAVORITE] = !product[IS_FAVORITE];
       }
 

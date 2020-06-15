@@ -2,13 +2,13 @@ import React, { useState, useCallback } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import Catalog from "../presentation/ProductPresentation";
-import { getProductByName } from "../../../modules/helpers/catalog";
+import { getProductByCodeColor } from "../../../modules/helpers/catalog";
 import { addToCart } from "../../../actions/cart";
 
 export const ProductContainer = ({ catalog, addToCart }) => {
   const [selectedSize, setSelectedSize] = useState();
-  const { name } = useParams();
-  const product = getProductByName(catalog.products, name);
+  const { code_color } = useParams();
+  const product = getProductByCodeColor(catalog.products, code_color);
   const onAddToCart = useCallback(() => {
     addToCart({ ...product, selectedSize });
   }, [addToCart, product, selectedSize]);

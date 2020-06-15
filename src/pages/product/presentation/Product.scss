@@ -2,16 +2,10 @@
 
 .single-product {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 0 auto;
+  padding: 4.2rem;
   position: relative;
-  width: 100%;
-  padding-bottom: 6.5rem;
-  height: 100vh;
-  padding: 10.1rem 6.4rem 0;
-  overflow: auto;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .single-product .badge {

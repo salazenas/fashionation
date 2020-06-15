@@ -1,6 +1,6 @@
-const findProductIndexByNameAndSize = (products, size, name) => {
+const findProductIndexByCodeAndSize = (products, size, code) => {
   return products.findIndex(
-    (product) => product.selectedSize === size && product.name === name
+    (product) => product.selectedSize === size && product.code_color === code
   );
 };
 
@@ -23,10 +23,10 @@ export const getItemsTotalPrice = (items) => {
 };
 
 export const handleAddItem = (items, newItem) => {
-  const currentProductIndex = findProductIndexByNameAndSize(
+  const currentProductIndex = findProductIndexByCodeAndSize(
     items,
     newItem.selectedSize,
-    newItem.name
+    newItem.code_color
   );
   const updatedItems = items;
 
@@ -40,10 +40,10 @@ export const handleAddItem = (items, newItem) => {
 };
 
 export const handleRemoveItem = (items, newItem) => {
-  const currentProductIndex = findProductIndexByNameAndSize(
+  const currentProductIndex = findProductIndexByCodeAndSize(
     items,
     newItem.selectedSize,
-    newItem.name
+    newItem.code_color
   );
   const updatedItems = items;
 

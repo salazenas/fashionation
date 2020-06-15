@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getProductsByName } from "../../modules/helpers/search";
-import { formatNameToUrlFormat } from "../../modules/helpers/catalog";
 import "./Search.scss";
 
 const getUnavailableImage = (name) => (
@@ -69,7 +68,7 @@ const Search = (props) => {
           itemsFound.map((product, index) => (
             <Link
               key={index}
-              to={`/product/${formatNameToUrlFormat(product.name)}`}
+              to={`/product/${product.code_color}`}
             >
               <div className="product__list">
                 <div className="product__list__item">

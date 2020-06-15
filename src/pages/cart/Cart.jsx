@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { addToCart, removeFromCart } from "../../actions/cart";
 import { getItemsTotalPrice } from "../../modules/helpers/cart";
 import { Link } from "react-router-dom";
-import { formatNameToUrlFormat } from "../../modules/helpers/catalog";
 
 import "../home/catalog/Item.scss";
 import "./Cart.scss";
@@ -18,7 +17,7 @@ const getCartItems = (items, addToCart, removeFromCart) => {
     <div key={index} className="product__list__item">
       <div className="product__list__row">
         <figure className="product__image">
-          <Link to={`${formatNameToUrlFormat(item.name)}`}>
+          <Link to={`product/${item.code_color}`}>
             <img
               src={item.image}
               alt={`Produto ${item.name}`}
