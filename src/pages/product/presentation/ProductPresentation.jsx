@@ -47,7 +47,9 @@ const getProductImage = (image, name, isFavorite, changeFavorite) => {
       ) : (
         getUnavailableImage(name)
       )}
-      {getFavoriteIcon(isFavorite, changeFavorite)}
+      <div className="product__favorite">
+        {getFavoriteIcon(isFavorite, changeFavorite)}
+      </div>
     </figure>
   );
 };

@@ -27,12 +27,17 @@
 
 .single__product-image {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  align-items: flex-start;
   width: -webkit-fill-available;
   width: -moz-available;
   position: relative;
   border: solid 2px $primaryColor;
   border-radius: .5rem;
+
+  .product__favorite {
+    position: absolute;
+  }
 
   .product__icon {
     opacity: 0.6;
