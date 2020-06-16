@@ -5,7 +5,7 @@ const findProductIndexByCodeAndSize = (products, size, code) => {
 };
 
 const addQuantityToProduct = (product) => {
-  return { ...product, quantity: 1 };
+  return { ...product, quantity: product.customQuantity };
 };
 
 const getValueFromPrice = (price) => {
@@ -31,7 +31,7 @@ export const handleAddItem = (items, newItem) => {
   const updatedItems = items;
 
   if (currentProductIndex > -1) {
-    items[currentProductIndex].quantity += 1;
+    items[currentProductIndex].quantity += newItem.customQuantity || 1;
   } else {
     items.push(addQuantityToProduct(newItem));
   }

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Product.scss";
+import Quantity from "../../../components/quantity/Quantity";
 
 const buttonStyle = {
   borderRadius: "inherit",
@@ -7,7 +8,7 @@ const buttonStyle = {
   left: 0,
   position: "absolute",
   top: 0,
-  width: "100%"
+  width: "100%",
 };
 
 const getUnavailableImage = (name) => (
@@ -48,7 +49,14 @@ const getSizes = (sizes, setSelectedSize, selectedSize) => {
   ));
 };
 
-function Product({ product, setSelectedSize, selectedSize, addToCart }) {
+function Product({
+  product,
+  setSelectedSize,
+  selectedSize,
+  addToCart,
+  customQuantity,
+  setCustomQuantity,
+}) {
   if (!product) {
     return null;
   }
@@ -72,12 +80,20 @@ function Product({ product, setSelectedSize, selectedSize, addToCart }) {
             {getSizes(product.sizes, setSelectedSize, selectedSize)}
           </div>
         </div>
+        <div className="product__quantity">
+          <p className="product__quantity__title">Escolha a quantidade</p>
+          <Quantity
+            value={customQuantity}
+            onClickMinus={() => setCustomQuantity(customQuantity - 1)}
+            onClickPlus={() => setCustomQuantity(customQuantity + 1)}
+          />
+        </div>
         <div className="product__actions">
           <button
             type="button"
             className="product__add-to-cart"
             onClick={addToCart}
-            disabled={!selectedSize}
+            disabled={!selectedSize || !customQuantity}
           >
             Adicionar à Sacola
             <canvas height="0" width="0" style={buttonStyle}></canvas>

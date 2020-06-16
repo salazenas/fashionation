@@ -7,17 +7,20 @@ import { addToCart } from "../../../actions/cart";
 
 export const ProductContainer = ({ catalog, addToCart }) => {
   const [selectedSize, setSelectedSize] = useState();
+  const [customQuantity, setCustomQuantity] = useState(0);
   const { code_color } = useParams();
   const product = getProductByCodeColor(catalog.products, code_color);
   const onAddToCart = useCallback(() => {
-    addToCart({ ...product, selectedSize });
-  }, [addToCart, product, selectedSize]);
+    addToCart({ ...product, selectedSize, customQuantity });
+  }, [addToCart, product, selectedSize, customQuantity]);
 
   return (
     <Catalog
       product={product}
       selectedSize={selectedSize}
       setSelectedSize={setSelectedSize}
+      customQuantity={customQuantity}
+      setCustomQuantity={setCustomQuantity}
       addToCart={onAddToCart}
     />
   );

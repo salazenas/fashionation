@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { addToCart, removeFromCart } from "../../actions/cart";
 import { getItemsTotalPrice } from "../../modules/helpers/cart";
 import { Link } from "react-router-dom";
-
+import Quantity from "../../components/quantity/Quantity";
 import "../home/catalog/Item.scss";
 import "./Cart.scss";
 
@@ -30,23 +29,11 @@ const getCartItems = (items, addToCart, removeFromCart) => {
           <p className="product__list__size">
             <span>Tam.: {item.selectedSize}</span>
           </p>
-          <div className="product__list__quantity">
-            <button
-              type="button"
-              className="cart__icons"
-              onClick={() => removeFromCart(item)}
-            >
-              <FontAwesomeIcon icon="minus" />
-            </button>
-            <div className="product__list__input">{item.quantity}</div>
-            <button
-              type="button"
-              className="cart__icons"
-              onClick={() => addToCart(item)}
-            >
-              <FontAwesomeIcon icon="plus" />
-            </button>
-          </div>
+          <Quantity
+            value={item.quantity}
+            onClickMinus={() => removeFromCart(item)}
+            onClickPlus={() => addToCart(item)}
+          />
         </div>
         <div className="product__list__pricing">
           <div className="product__list__current">{item.actual_price}</div>

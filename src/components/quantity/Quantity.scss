@@ -1,0 +1,46 @@
+@import "../../assets/styles/common";
+
+.quantity__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+
+  .quantity__value {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  button {
+    position: relative;
+    cursor: pointer;
+    font-weight: 600;
+    padding: .8rem 1rem;
+    border: .1rem solid #dfdfdf;
+    background: transparent;
+    outline: none;
+    border-radius: .5rem;
+    background-color: $primaryColor;
+    color: #fff;
+    border-color: $primaryColor;
+  }
+}
+
+.quantity_icons {
+  -webkit-tap-highlight-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  line-height: 0;
+  font-weight: 600;
+  padding: .2rem;
+  border: 0.1rem solid $primaryColor;
+
+  &:hover {
+    background-color: $primaryColor;
+    color: #fff;
+    border-color: $primaryColor;
+  }
+}
