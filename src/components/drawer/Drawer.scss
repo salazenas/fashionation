@@ -24,6 +24,7 @@
   transition: transform .3s ease-out, -webkit-transform .3s ease-out;
   width: 100%;
   z-index: 20;
+  transform: translateZ(10);
 }
 
 @media screen and (min-width: 1279px) {

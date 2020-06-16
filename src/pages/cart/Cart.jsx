@@ -16,7 +16,7 @@ const getCartItems = (items, addToCart, removeFromCart) => {
     <div key={index} className="product__list__item">
       <div className="product__list__row">
         <figure className="product__image">
-          <Link to={`product/${item.code_color}`}>
+          <Link to={`${item.code_color}`}>
             <img
               src={item.image}
               alt={`Produto ${item.name}`}
