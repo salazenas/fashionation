@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import "../modules/libs/fontawesome";
 
-import Loading from "../components/loading/index";
+import Loading from "../components/loading/Loading";
 import Navbar from "./navbar/Navbar";
 import Footer from "./footer/Footer";
 import Routes from "../routes/index";
