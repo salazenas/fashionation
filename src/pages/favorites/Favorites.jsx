@@ -74,6 +74,7 @@ const Search = (props) => {
               setFavorites(getFavorites(props.catalog.products));
             }
           }}
+          autoFocus
         />
       </div>
 

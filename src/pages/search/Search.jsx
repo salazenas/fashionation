@@ -62,6 +62,7 @@ const Search = (props) => {
                 : []
             );
           }}
+          autoFocus
         />
       </div>
 
