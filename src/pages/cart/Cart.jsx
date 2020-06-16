@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { addToCart, removeFromCart } from "../../actions/cart";
 import { getItemsTotalPrice } from "../../modules/helpers/cart";
-import { Link } from "react-router-dom";
 import Quantity from "../../components/quantity/Quantity";
 import "../home/catalog/Item.scss";
 import "./Cart.scss";
@@ -45,7 +44,7 @@ const getCartItems = (items, addToCart, removeFromCart) => {
           <Quantity
             value={item.quantity}
             onClickMinus={() => removeFromCart(item)}
-            onClickPlus={() => addToCart(item)}
+            onClickPlus={() => addToCart({ ...item, customQuantity: 1 })}
           />
         </div>
         <div className="product__list__pricing">
