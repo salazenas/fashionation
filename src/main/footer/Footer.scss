@@ -31,6 +31,10 @@
       .footer__icon {
         margin: 0 0.5rem;
         color: white;
+
+        &:hover {
+          color: $hoverColor;
+        }
       }
     }
   }
