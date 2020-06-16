@@ -87,7 +87,9 @@ const App = ({
         }`}
       >
         <Navbar />
-        <Routes />
+        <div className="main">
+          <Routes />
+        </div>
         <Footer />
         {app.isDrawerVisible
           ? getDrawer(drawerProps, dismissDrawer, cartLength)

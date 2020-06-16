@@ -25,6 +25,10 @@
   position: relative;
   width: 100%;
 
+  .main {
+    padding: 5.7rem 0rem 3.2rem;
+  }
+
   &.loading {
     display: none;
   }
