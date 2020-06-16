@@ -13,7 +13,7 @@ const Navbar = (props) => {
       <Link to="/home">
         <img
           className="header__brand"
-          src="../logo/small.png"
+          src="../logo/navbar.png"
           alt="Fashionista logo"
         />
       </Link>
