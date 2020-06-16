@@ -1,6 +1,7 @@
 import React from "react";
 import "./Product.scss";
 import Quantity from "../../../components/quantity/Quantity";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const buttonStyle = {
   borderRadius: "inherit",
@@ -9,6 +10,24 @@ const buttonStyle = {
   position: "absolute",
   top: 0,
   width: "100%",
+};
+
+const handleChangeFavorite = (evt, callback) => {
+  callback();
+
+  evt.stopPropagation();
+};
+
+const getFavoriteIcon = (isFavorite, changeFavorite) => {
+  return (
+    <div>
+      <FontAwesomeIcon
+        className="product__icon"
+        icon={[isFavorite ? "fas" : "far", "heart"]}
+        onClick={(evt) => handleChangeFavorite(evt, changeFavorite)}
+      />
+    </div>
+  );
 };
 
 const getUnavailableImage = (name) => (
@@ -20,7 +39,7 @@ const getUnavailableImage = (name) => (
   />
 );
 
-const getProductImage = (image, name) => {
+const getProductImage = (image, name, isFavorite, changeFavorite) => {
   return (
     <figure className="single__product-image">
       {image ? (
@@ -28,6 +47,7 @@ const getProductImage = (image, name) => {
       ) : (
         getUnavailableImage(name)
       )}
+      {getFavoriteIcon(isFavorite, changeFavorite)}
     </figure>
   );
 };
@@ -49,13 +69,14 @@ const getSizes = (sizes, setSelectedSize, selectedSize) => {
   ));
 };
 
-function Product({
+function ProductPresentation({
   product,
   setSelectedSize,
   selectedSize,
   addToCart,
   customQuantity,
   setCustomQuantity,
+  changeFavorite,
 }) {
   if (!product) {
     return null;
@@ -63,7 +84,9 @@ function Product({
 
   return (
     <div className="single-product">
-      {getProductImage(product.image, product.name)}
+      {getProductImage(product.image, product.name, product.isFavorite, () =>
+        changeFavorite(product.code_color)
+      )}
       <div className="product__content">
         <h3 className="product__name">{product.name}</h3>
         <div className="product__pricing">
@@ -104,6 +127,6 @@ function Product({
   );
 }
 
-Product.propTypes = {};
+ProductPresentation.propTypes = {};
 
-export default Product;
+export default ProductPresentation;

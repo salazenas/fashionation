@@ -27,11 +27,24 @@
 
 .single__product-image {
   display: flex;
+  flex-direction: row-reverse;
   width: -webkit-fill-available;
   width: -moz-available;
   position: relative;
   border: solid 2px $primaryColor;
   border-radius: .5rem;
+
+  .product__icon {
+    opacity: 0.6;
+    margin: 1rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 
   img {
     width: inherit;
@@ -49,7 +62,7 @@
   .single-product {
     flex-direction: row;
   }
-  
+
   .single-product .badge {
     right: 0;
     top: 0;
