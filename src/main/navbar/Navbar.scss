@@ -65,7 +65,11 @@
       padding: .5rem;
       padding: 0;
       position: relative;
-      color: white
+      color: #fff;
+
+      &:hover {
+        color: $hoverColor
+      }
     }
   }
 
