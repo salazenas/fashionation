@@ -11,19 +11,32 @@ const getEmptyCart = () => {
   return <span className="cart__empty">Sua sacola está vazia (◠︿◠✿)</span>;
 };
 
+const getUnavailableImage = (name) => (
+  <img
+    className={"product__placeholder"}
+    src="https://via.placeholder.com/470x594/FFFFFF/?text=Imagem+Indisponível"
+    alt={`Produto ${name}`}
+    title={name}
+  />
+);
+
+const getProductImage = (image, name) => {
+  return (
+    <figure className="product__image">
+      {image ? (
+        <img src={image} alt={`Produto ${name}`} title={name} />
+      ) : (
+        getUnavailableImage(name)
+      )}
+    </figure>
+  );
+};
+
 const getCartItems = (items, addToCart, removeFromCart) => {
   return items.map((item, index) => (
     <div key={index} className="product__list__item">
       <div className="product__list__row">
-        <figure className="product__image">
-          <Link to={`${item.code_color}`}>
-            <img
-              src={item.image}
-              alt={`Produto ${item.name}`}
-              title={`${item.name}`}
-            />
-          </Link>
-        </figure>
+        {getProductImage(item.image, item.name)}
         <div className="product__list__info">
           <p className="product__list__name">{`${item.name}`}</p>
           <p className="product__list__size">
