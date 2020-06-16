@@ -54,15 +54,18 @@ const getProductImage = (image, name, isFavorite, changeFavorite) => {
   );
 };
 
+const getAvailableSizes = (sizes) => {
+  return sizes.filter((size) => size.available);
+};
+
 const getSizes = (sizes, setSelectedSize, selectedSize) => {
-  return sizes.map((size, index) => (
+  return getAvailableSizes(sizes).map((size, index) => (
     <button
       key={index}
       type="button"
       className={`product__filter ${
         selectedSize === size.size ? "product__filter--selected" : ""
       }`}
-      disabled={!size.available}
       onClick={() => setSelectedSize(size.size)}
     >
       {size.size}
