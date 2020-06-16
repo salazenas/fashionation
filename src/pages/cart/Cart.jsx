@@ -8,7 +8,7 @@ import "../home/catalog/Item.scss";
 import "./Cart.scss";
 
 const getEmptyCart = () => {
-  return <span className="cart__empty">Sua sacola está vazia :\</span>;
+  return <span className="cart__empty">Sua sacola está vazia (◠︿◠✿)</span>;
 };
 
 const getCartItems = (items, addToCart, removeFromCart) => {

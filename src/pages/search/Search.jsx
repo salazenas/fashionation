@@ -42,6 +42,7 @@ const getSizes = (sizes) => {
 };
 
 const Search = (props) => {
+  const [currentSearch, setCurrentSearch] = useState("");
   const [itemsFound, setItemsFound] = useState([]);
 
   return (
@@ -51,11 +52,16 @@ const Search = (props) => {
           className="search__input"
           type="text"
           placeholder="Buscar por produto..."
-          onChange={(evt) =>
+          onChange={(evt) => {
+            const inputValue = evt.target.value;
+
+            setCurrentSearch(inputValue);
             setItemsFound(
-              getProductsByName(props.catalog.products, evt.target.value)
-            )
-          }
+              inputValue
+                ? getProductsByName(props.catalog.products, inputValue)
+                : []
+            );
+          }}
         />
       </div>
 
@@ -66,10 +72,7 @@ const Search = (props) => {
       <div className="product__list">
         {itemsFound.length > 0 ? (
           itemsFound.map((product, index) => (
-            <Link
-              key={index}
-              to={`/product/${product.code_color}`}
-            >
+            <Link key={index} to={`/product/${product.code_color}`}>
               <div className="product__list">
                 <div className="product__list__item">
                   <div className="product__list__row">
@@ -94,7 +97,19 @@ const Search = (props) => {
             </Link>
           ))
         ) : (
-          <span className="cart__empty">Nenhum item encontrado :\</span>
+          <div className="cart__empty">
+            {currentSearch.length ? (
+              <p>Parece que não temos esse produto em nossa loja {"<('o'<)"}</p>
+            ) : (
+              <>
+                <p>"Compre, compre, compre!" - Ciro Bottini</p>
+                <p>
+                  Sinta-se a vontade para pesquisar um produto no campo acima
+                  ＼(*^▽^*)/
+                </p>
+              </>
+            )}
+          </div>
         )}
       </div>
     </div>

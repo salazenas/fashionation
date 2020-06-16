@@ -46,6 +46,7 @@ const getFavorites = (items) => {
 };
 
 const Search = (props) => {
+  const [currentSearch, setCurrentSearch] = useState("");
   const [favorites, setFavorites] = useState(
     getFavorites(props.catalog.products)
   );
@@ -57,11 +58,22 @@ const Search = (props) => {
           className="search__input"
           type="text"
           placeholder="Buscar por produto..."
-          onChange={(evt) =>
-            setFavorites(
-              getProductsByName(favorites, evt.target.value)
-            )
-          }
+          onChange={(evt) => {
+            const inputValue = evt.target.value;
+
+            setCurrentSearch(inputValue);
+
+            if (inputValue.length) {
+              setFavorites(
+                getProductsByName(
+                  getFavorites(props.catalog.products),
+                  evt.target.value
+                )
+              );
+            } else {
+              setFavorites(getFavorites(props.catalog.products));
+            }
+          }}
         />
       </div>
 
@@ -72,10 +84,7 @@ const Search = (props) => {
       <div className="product__list">
         {favorites.length > 0 ? (
           favorites.map((product, index) => (
-            <Link
-              key={index}
-              to={`/product/${product.code_color}`}
-            >
+            <Link key={index} to={`/product/${product.code_color}`}>
               <div className="product__list">
                 <div className="product__list__item">
                   <div className="product__list__row">
@@ -100,7 +109,16 @@ const Search = (props) => {
             </Link>
           ))
         ) : (
-          <span className="cart__empty">Nenhum item encontrado :\</span>
+          <div className="cart__empty">
+            {currentSearch.length ? (
+              <p>Não encontramos nada (¤﹏¤)</p>
+            ) : (
+              <>
+                <p>Parece que você não possui nenhum produto favorito...</p>
+                <p>Que tal adicionar alguns? ヽ(^◇^*)/</p>
+              </>
+            )}
+          </div>
         )}
       </div>
     </div>
@@ -108,7 +126,7 @@ const Search = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  catalog: state.catalog
+  catalog: state.catalog,
 });
 
 export default connect(mapStateToProps, null)(Search);
