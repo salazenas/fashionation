@@ -9,16 +9,24 @@ const handleClick = (evt, drawerRef, setIsVisible) => {
   }
 };
 
+const handleKeyPress = (evt, setIsVisible) => {
+  if (evt.keyCode === 27) {
+    setIsVisible(false);
+  }
+};
+
 function Drawer({ children, title, onDismiss, history }) {
   const drawerRef = useRef();
   const [isVisible, setIsVisible] = useState(false);
   const historyListener = useRef();
   const previousVisiblity = useRef(isVisible);
   const onClickOut = (evt) => handleClick(evt, drawerRef, setIsVisible);
+  const onKeyPress = (evt) => handleKeyPress(evt, setIsVisible);
 
   useEffect(
     () => {
       document.addEventListener("click", onClickOut);
+      document.addEventListener("keyup", onKeyPress);
       historyListener.current = history.listen((location, action) =>
         setIsVisible(false)
       );
@@ -26,6 +34,7 @@ function Drawer({ children, title, onDismiss, history }) {
 
       return () => {
         document.removeEventListener("click", onClickOut);
+        document.removeEventListener("keyPress", onKeyPress);
         historyListener.current();
       };
     },
