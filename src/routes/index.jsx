@@ -1,10 +1,18 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Switch, withRouter } from "react-router-dom";
 
 import Home from "../pages/home/Home";
 import Product from "../pages/product/container/ProductContainer";
 
-const Routes = () => {
+const Routes = ({ history }) => {
+  useEffect(() => {
+    const historyListener = {
+      current: history.listen((location, action) => window.scrollTo(0, 0)),
+    };
+
+    return () => historyListener.current();
+  }, [history]);
+
   return (
     <Switch>
       <Route exact path="/" component={Home} />
@@ -14,4 +22,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+export default withRouter(Routes);
