@@ -1,6 +1,5 @@
 import { SET_PRODUCTS, CHANGE_FAVORITE } from "../modules/constants/catalog";
-
-import axios from "axios";
+import catalogAPI from "../assets/services/api";
 
 const setCatalog = (payload) => ({
   type: SET_PRODUCTS,
@@ -13,9 +12,5 @@ export const changeFavorite = (payload) => ({
 });
 
 export const fetchCatalog = () => {
-  return (dispatch) => {
-    axios
-      .get("https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog")
-      .then((res) => dispatch(setCatalog(res.data)));
-  };
+  return (dispatch) => catalogAPI.getProducts().then((res) => dispatch(setCatalog(res)));
 };
